@@ -1,0 +1,174 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="apple-touch-icon" href="icon.png">
+  <!-- Place favicon.ico in the root directory -->
+  
+  <link rel="stylesheet" href="css/nouislider.min.css">
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/main.css">
+
+  <meta name="theme-color" content="#fafafa">
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+    <div></div>
+    
+</head>
+
+<body>
+  <!--[if IE]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+  <![endif]-->
+  <svg></svg>
+  <div id="slider"></div>
+
+  
+  <fieldset id="animeType">
+  
+        <div>
+          <label class="container">
+            <input type='checkbox'  id="movies_cb" value="1" onclick='movieClick(this);' checked>Movies
+            <span class="checkmark"></span>
+          </label>   
+        </div>
+        
+        <div>
+        
+          <label class="container">
+            <input type='checkbox'  id="tv_cb" value="1" onclick='tvClick(this);' checked> TV shows
+            <span class="checkmark"></span>
+          </label>
+        </div>
+        
+   </fieldset>
+   <svg id="movieLegend" height="40" width="110">
+                  <circle cx="20" cy="20" r="8" stroke="red" stroke-width="3" stroke-opacity="0.4" fill="white" />
+                  <text x="40" y="25" font-family="sans-serif" font-size="20px" fill="black">Movie</text>                             
+   </svg>
+   <svg id="movieLegend" height="40" width="110">
+   <circle cx="20" cy="20" r="8" stroke="blue" stroke-width="3" stroke-opacity="0.4" fill="white" />
+                  <text x="40" y="25" font-family="sans-serif" font-size="20px" fill="black">TV</text>
+    </svg>
+
+
+<div class="card">
+  <div class="cardcontainer">
+    
+<h1>setup and run the server</h1>
+<p>
+run in terminal:
+psql -U a3user -d a3db -f addTables.sql
+yarn install
+node index.js
+# visit "http://localhost:8080/"
+</p>
+<h1>visualizations implemented</h1>
+<p>
+the visualization is about animes.
+one visualization that correlates between anime's rank (based on user score aggregate) on the x axis
+and the anime's number of views by all users 
+on the y axis. ( the number of views only includes people who set the anime as completed in their account)
+anime movies show up as red circles while anime tv shows show up as blue circles.
+when you hover over a circle, it changes to green color and displays the anime's name in a tooltip.
+</p>
+<h1>interactions</h1>
+<p>
+1. rank slider:
+    the range of the rank of the shown points gets filtered according to the range of the slider.
+    this slider can be dragged, expanded and shrunk. (the maximum allowed range of expansion is 750.
+    otherwise graph will be too cluttered if more is allowed)
+2. two checkboxs:
+    one for movies and one for TV shows. toggling them will affect which is shown in the vizualization.
+</p>
+<h1>rationale</h1>
+<p>
+visual encoding pick:
+the first thing i did after downloading the dataset is use tableau on it.
+i chose the rank of the anime as the x axis and the number of views on the y axis.
+
+tableau automatically picked a bar chart for it and it looked pretty good so i set on implementing a barchart.
+I did implement it but I later recalled that from the readings and class that position is better than length
+and since I have quantitative data on both axis then using a scatterplot will produce a more accurate graph.
+(as scatterplot uses position encoding)
+
+Another aspect that made me rethink the  barchart is the fact that I couldn't increase the slider
+filter range to more than 100 because the bars were getting too small and I could barely hover the mouse
+over them in order to show the title as a tooltip.
+</p>
+<h1>interaction technique pick</h1>
+<p>
+I added the checkboxes of TV and Movies because most people when they look for an anime they won't
+settle for either a movie or a tv show, they know that they specifically want to watch a movie or a show.
+so these checkboxes help the user focus on data relevant to them  (also personally I always search
+for shows and I'm not very interested in movies and I was hoping to use this tool to find good animes
+more easily as it's been a while since i watched a good one :) )
+I added the slider bar because having all the data at once is too much and the visualization will be
+too cluttered. moving the slider around, shrinking and expanding 
+it is a natural way to explore which animes to watch.
+for example you look at the top viewed animes in the initial rank range,
+you might know most of these animes because they are popular.
+so you slide the range a bit to the right and start exploring more animes.
+You start looking at outliers, animes located at the  top half of the y axis (lots of views)
+and the right half of the x axis (low rank in terms of current range filter).
+I call these animes "hidden gem" animes. this was
+essentialy my motivation for picking this particular dataset and choosing the slider interaction)
+
+before thinking of a slider, I thought i'd have 2 values for min and max rank with fields that i can fill in.
+and filling in these fields will update the filters but it isn't as intuitive and natural as manipulating a slider.
+that's why i ended up implementing it as a slider.
+</p>
+<h1>back-end</h1>
+<p>
+I went with a simple node.js file using express and node-js.
+I was thinking of using python for the webserver because I'm familar with python but since I am not 
+really familar with how to build a server in python, I decided to go with node.js as I wanted to learn
+more about java script. moreover it felt like it will be easier for me 
+if both the client and server side were implemented in the same language.
+</p>
+<h1>development process</h1>
+<p>
+number of hours:
+I worked on it for at least 14 days and probably 4 hours on average each day so about 56 hours.
+what took most of my time:
+was just learning javascript and all the libraries/packages that i can use.
+there were so many ways to solve this and the number of options was overwhelming.
+I just spent a lot of time reading material from w3schools and trying basic things
+to get the hang of it.
+also it was challenging to learn how to use d3 but examples online really helped.
+Furthermore, in theory I knew how a client and server should communicate with each other
+but when i needed to write both i thought a lot about which to start implementing first.
+I ended up starting with a very barebones server and then adding code to both the client and the server
+iteratively after that.
+one thing I forgot to mention earlier is data wrangling:
+at first the data looked ready to go. (didn't have to change anything in order to use it on tableau)
+but it was difficult to add it to postgres. because some lines would suddenly have more attributes,
+some were empty and some lines even had the same number of attributes but they didn't makes sense.
+it took me about 3 days to make it ready for postgres.
+
+
+</p>
+  </div>
+  
+  
+</div>
+
+  <!-- Add your site or application content here -->
+  <script src="js/vendor/modernizr-3.7.1.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.4.1.min.js"><\/script>')</script>
+  <script src="js/nouislider.min.js"></script>
+  <script src="js/plugins.js"></script>
+  <script src="js/main.js"></script>
+
+
+</body>
+
+</html>

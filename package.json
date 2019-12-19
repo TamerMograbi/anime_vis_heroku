@@ -1,0 +1,25 @@
+{
+  "name": "Assignment3",
+  "version": "1.0.0",
+  "description": "setup and run the server:\r run in psql:\r         CREATE TABLE animeUsers2M (username varchar(20), anime_id int,my_watched_episodes int,\r         my_start_date varchar(30),my_finish_date varchar(30),my_score int,my_status int,my_rewatching varchar(5),\r         my_rewatching_ep int,my_last_updated varchar(50));",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TamerMograbi/anime-visualization.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TamerMograbi/anime-visualization/issues"
+  },
+  "homepage": "https://github.com/TamerMograbi/anime-visualization#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nouislider": "^14.0.3",
+    "pg": "^7.12.1"
+  }
+}

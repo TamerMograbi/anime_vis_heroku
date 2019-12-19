@@ -1,0 +1,44 @@
+CREATE TABLE allanimeusers (username varchar(20), anime_id int,my_watched_episodes int,
+my_start_date varchar(30),my_finish_date varchar(30),my_score int,my_status int,my_rewatching varchar(5),
+my_rewatching_ep int,my_last_updated varchar(50));
+
+\copy allanimeusers FROM './animeUsers1M.csv' WITH DELIMITER ',' CSV HEADER;
+SET CLIENT_ENCODING TO 'utf8';
+CREATE TABLE horokuanimes (anime_id INT,title text,title_english text,title_japanese text,
+title_synonyms text,image_url text,type text,source text,episodes INT,status text,
+airing BOOLEAN,aired_string text,aired text,duration text,rating text,
+score FLOAT,scored_by INT,rank FLOAT,popularity INT,members INT,favorites INT,background text,
+premiered text,broadcast text,related text,producer text,
+licensor text,studio text,genre text,opening_theme text,
+ending_theme text,duration_min FLOAT,aired_from_year text );
+
+\copy horokuanimes FROM 'C:\semester3\interactiveAnalytics\Assignment3\anime_cleaned.csv' WITH DELIMITER ',' CSV HEADER;
+
+ALTER TABLE horokuanimes
+        DROP COLUMN title_japanese,
+        DROP COLUMN title_synonyms,
+        DROP COLUMN type,
+        DROP COLUMN background,
+        DROP COLUMN related,
+        DROP COLUMN opening_theme,
+        DROP COLUMN ending_theme; 
+
+====================================================
+\copy allanimeusers FROM 'C:\semester3\interactiveAnalytics\animeUsers1MCopy.csv' WITH DELIMITER ',' CSV HEADER;
+
+animeUsers1MCopy.csv is really about 12 million lines. i gave it that name because i thought it was 1.2 million
+
+
+====================================================
+
+var queryStr = 
+        `SELECT horokuanimes.anime_id,title,numberofViews,episodes,rank,image_url
+        FROM
+        (SELECT anime_id, COUNT(*) as numberOfViews
+        FROM allanimeusers
+        WHERE my_status=2
+        GROUP BY anime_id) as foo JOIN horokuanimes ON horokuanimes.anime_id=foo.anime_id`;
+        
+queryStr in one line:
+
+SELECT horokuanimes.*,numberOfViews FROM (SELECT anime_id, COUNT(*) as numberOfViews FROM allanimeusers WHERE my_status=2 GROUP BY anime_id) as foo JOIN horokuanimes ON horokuanimes.anime_id=foo.anime_id
