@@ -38,13 +38,9 @@ app.get('/data', (request, response) => {
         })
     */
     var queryStr = 
-        `SELECT animes.anime_id,title,numberofViews,episodes,rank
-        FROM
-        (SELECT anime_id, COUNT(*) as numberOfViews
-        FROM animeusers2M
-        WHERE my_status=2
-        GROUP BY anime_id) as foo JOIN animes ON animes.anime_id=foo.anime_id
-        WHERE ${movieTvQ} AND rank >= ${request.query.min_pop} AND rank <=${request.query.max_pop} ORDER BY rank`;
+        `SELECT herokuJoinedTable 
+        WHERE ${movieTvQ} AND rank >= ${request.query.min_pop} AND rank <=${request.query.max_pop}
+        ORDER BY rank`;
 
     pool.query(queryStr)
         .then( results => {      
