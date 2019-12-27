@@ -3,14 +3,23 @@ const bodyParser = require('body-parser')
 const app = express()
 const port = 8080
 // IMPORTANT NOTE: THIS VERSION INCLUDES A3USER,A3DB,PASSWORD AS USER,DATABASE NAME,.password RESPECTIVELY
-const Pool = require('pg').Pool
+const { Pool } = require('pg')
+require('dotenv').config()
+const env = process.env
+
 const pool = new Pool({
+  connectionString: env.DATABASE_URL
+})
+
+/*const pool = new Pool({
   user: 'a3user',
   host: 'localhost',
   database: 'a3db',
   password: 'password',
   port: 5432,
-})
+})*/
+
+
 
 app.use(express.static('public'))
 
