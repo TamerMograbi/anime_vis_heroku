@@ -38,7 +38,8 @@ app.get('/data', (request, response) => {
         })
     */
     var queryStr = 
-        `SELECT herokuJoinedTable 
+        `SELECT animes.anime_id,title,numberofViews,episodes,rank
+        FROM herokuJoinedTable 
         WHERE ${movieTvQ} AND rank >= ${request.query.min_pop} AND rank <=${request.query.max_pop}
         ORDER BY rank`;
 
