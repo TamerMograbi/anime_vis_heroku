@@ -1,7 +1,7 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const app = express()
-const port = 8080
+//const port = 8080
 // IMPORTANT NOTE: THIS VERSION INCLUDES A3USER,A3DB,PASSWORD AS USER,DATABASE NAME,.password RESPECTIVELY
 const { Pool } = require('pg')
 require('dotenv').config()
@@ -58,6 +58,6 @@ app.get('/data', (request, response) => {
         })
 })
 
-app.listen(port, () => {
+app.listen(process.env.PORT, () => {
     console.log(`App running on port ${port}.`)
 })
