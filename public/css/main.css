@@ -264,9 +264,17 @@ textarea {
   }
 }
 
-body {
-    width:960px;
-    margin:50px auto;
+
+
+.box{
+  position: relative;
+  display: block;
+  margin-top: 8%;
+  margin-left: 3%;
+  left: 100px;
+  width: 1200px;
+  height: 520px;
+  background: none;
 }
 
 .bar { fill: white; }
@@ -288,12 +296,12 @@ body {
 label {
   position: relative;
   left: 980px;
-  bottom:500px;
+  bottom:400px;
 }
 #movieLegend {
   position: relative;
   left: 980px;
-  bottom:500px;
+  bottom:400px;
 }
 
 /* The container */

@@ -1,0 +1,127 @@
+
+.black-circle{
+  position: absolute;
+  background: #000000;
+  bottom: 15%;
+  right: 3%;
+  width: 15%;
+  height: 33%;
+  border-radius:50%
+  
+}
+
+.red-iris{
+  position: absolute;
+  background: #C6000D;
+  top: 8%;
+  left: 7.5%;
+  width: 85%;
+  height: 85%;
+  border-radius:50%
+}
+
+.grey-circle{
+  position: absolute;
+  background: #900004;
+  top: 15%;
+  left: 15%;
+  width: 70%;
+  height: 70%;
+  border-radius:50%
+}
+
+.red-inner-circle{
+  position: absolute;
+  background: #C6000D;
+  top: 10%;
+  left: 10%;
+  width: 80%;
+  height: 80%;
+  border-radius:50%
+}
+
+.top-sharingan{
+  position: absolute;
+  background: #000000;
+  top: -5%;
+  left: 40%;
+  width: 20%;
+  height: 20%;
+  border-radius:50%
+}
+
+.top-edge{
+  position: absolute;
+  background: #000000;
+  top: -70%;
+  left: 15%;
+  width: 100%;
+  height: 100%;
+  border-radius:30%;
+  clip-path: polygon(100% 1%, 100% 4%, 44% 52%, 36% 90%, 0 91%, 0 48%);
+  
+}
+
+.top-edge-circle{
+  position: absolute;
+  background: #000000;
+  top: -30%;
+  left: 18%;
+  width: 20%;
+  height: 20%;
+  border-radius:50%;
+}
+
+.right-sharingan{
+  position: absolute;
+  background: #000000;
+  top: 60%;
+  right: 0%;
+  width: 20%;
+  height: 20%;
+  border-radius:50%
+}
+
+.left-edge{
+  position: absolute;
+  background: #000000;
+  top: -15%;
+  left: -60%;
+  width: 100%;
+  height: 100%;
+  border-radius:30%;
+  clip-path: polygon(100% 1%, 100% 4%, 44% 52%, 36% 90%, 0 91%, 0 48%);
+  transform: rotate(-90deg);
+}
+
+.left-sharingan{
+  position: absolute;
+  background: #000000;
+  top: 60%;
+  left: 0%;
+  width: 20%;
+  height: 20%;
+  border-radius:50%
+}
+
+.right-edge{
+  position: absolute;
+  background: #000000;
+  top: 15%;
+  left: 60%;
+  width: 100%;
+  height: 100%;
+  clip-path: polygon(100% 1%, 100% 4%, 44% 52%, 36% 90%, 0 91%, 0 48%);
+  transform: rotate(90deg);
+  border-radius:30%;
+}
+
+.inner-black-circle{
+  position: absolute;
+  background: #000000;
+  top: 40%;
+  left: 40%;
+  width: 20%;
+  height: 20%;
+  border-radius:50%
+}
