@@ -131,7 +131,7 @@ $.get("data",{min_pop:init_min,max_pop:init_max,movie_checked:movieChecked,tv_ch
 
 var behaviourSlider = document.getElementById('slider');
 
-$('#slider').css({"width":width, "margin-left":margin.left+130, "margin-right":margin.right, "margin-top":margin.top})
+$('#slider').css({"width":width, "margin-left":margin.left, "margin-right":margin.right, "margin-top":-105})
 noUiSlider.create(behaviourSlider, {
     start: [init_min, init_max],
     step: 1,
