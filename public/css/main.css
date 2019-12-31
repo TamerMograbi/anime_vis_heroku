@@ -269,7 +269,7 @@ textarea {
 .box{
   position: relative;
   display: block;
-  margin-top: 8%;
+  margin-top: 30%;
   margin-left: 3%;
   left: 100px;
   width: 1200px;
@@ -405,6 +405,23 @@ p{
 h1 {
   text-transform: uppercase;
   color: #4CAF50;
+}
+
+ .toolbar {
+	 position: absolute;
+	 width: 100%;
+	 height: 420px;
+     top:0%;
+	 background: #e8ba4a;
+}
+
+.myname{
+    position: absolute;
+    left:45%;
+    top:30%;
+    text-transform: uppercase;
+    color:#f1f2f2;
+    font-size: 3.5em;
 }
 
 
