@@ -163,6 +163,46 @@
   
   
 
+<div class="explanation">
+    <h1> Data origin</h>
+    <p>
+    The database was downloaded from https://www.kaggle.com/azathoth42/myanimelist. I took a table
+    that contains data about each user (which animes they  completed and their ratings...) this table
+    was initially about 35 million rows, i needed to do a lot of data wrangling in order for postgres to accept
+    the data as it had numerous errors. i had to write scripts to remove these errors and i later randomly (uniformly)
+    removed about a 3rd of the rows and ended up with about 12 million rows.
+    </p>
+    <p>
+    I then joined the the above table with the animes table which is about 7 thousand rows and contains info about all
+    the animes. (rank, popularity, released date, number of episodes...) from the resulting table I can get info such as
+    how many people finished an anime and it's rank and I created the graph from this info.
+    </p>
+    <h1>About the Graph</h1>
+    <p>
+    the visualization is about animes.
+    one visualization that correlates between anime's rank (based on user score aggregate) on the x axis
+    and the anime's number of views by all users 
+    on the y axis. ( the number of views only includes people who set the anime as completed in their account)
+    anime movies show up as red circles while anime tv shows show up as blue circles.
+    when you hover over a circle, it changes to green color and displays the anime's name in a tooltip.
+    </p>
+    <h1>interactions</h1>
+    <p>
+    1. rank slider:
+        the range of the rank of the shown points gets filtered according to the range of the slider.
+        this slider can be dragged, expanded and shrunk. (the maximum allowed range of expansion is 750.
+        otherwise graph will be too cluttered if more is allowed)
+    </p>
+    <p>
+    2. two checkboxs:
+        one for movies and one for TV shows. toggling them will affect which is shown in the vizualization.
+    </p>
+    
+    <h1> Architecture</h>
+    <p>
+    talk about server and client side. (use bullet points)
+    </p>
+</div>
 
 
 <!--
