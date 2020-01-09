@@ -431,7 +431,7 @@ h1 {
 .myname{
     position: absolute;
     top:-75%;
-    left:45%;
+    left:650px;
     text-transform: uppercase;
     color:#f1f2f2;
     font-size: 3.5em;
