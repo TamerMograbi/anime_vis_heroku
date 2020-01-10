@@ -28,6 +28,17 @@ var y_axis = d3.axisLeft()
             .scale(y);
             
 var tooltip = d3.select("body").append("div").attr("class", "toolTip");
+tooltip.style("text-align", "left");
+var animename = d3.select(".toolTip").append("p").attr("class","animename");
+var rankOfAnime = d3.select(".toolTip").append("p").attr("class","animeRank");
+var numberofViewsText = d3.select(".toolTip").append("p").attr("class","numberofViews");
+var episodesNum = d3.select(".toolTip").append("p").attr("class","episodeNum");
+var airTime = d3.select(".toolTip").append("p").attr("class","airTime");
+var studio = d3.select(".toolTip").append("p").attr("class","studio");
+
+tooltip.style("transition" ,"all 2s");
+
+
           
 // append the svg object to the body of the page
 // append a 'group' element to 'svg'
@@ -92,10 +103,18 @@ function draw(data) {
       .merge(mysvg)
       .on("mousemove", function(d){
             tooltip
-              .style("left", d3.event.pageX - 50 + "px")
-              .style("top", d3.event.pageY - 70 + "px")
+              .style("left", d3.event.pageX + "px")
+              .style("top", d3.event.pageY - 370 + "px")
               .style("display", "inline-block")
-              .html((d.title));
+            animename.html("Title: " + d.title);
+            rankOfAnime.html("Rank: " + d.rank);
+            episodesNum.html("# Of Episodes: " + d.episodes);
+            numberofViewsText.html("Number Of Views: " + d.numberofviews);
+            var airdVal = (d.aired).replace(/'/g, "\""); // replace ' with "
+            var airedObj = JSON.parse(airdVal);
+            airTime.html("Release Date: " + airedObj.from);
+            studio.html("Studio: " + d.studio);
+            
         })
        .on("mouseout", function(d){ tooltip.style("display", "none");})
        .transition()

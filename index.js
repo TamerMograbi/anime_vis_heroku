@@ -47,7 +47,7 @@ app.get('/data', (request, response) => {
         })
     */
     var queryStr = 
-        `SELECT anime_id,title,numberofViews,episodes,rank
+        `SELECT anime_id,title,numberofViews,episodes,rank,aired,studio
         FROM animes 
         WHERE ${movieTvQ} AND rank >= ${request.query.min_pop} AND rank <=${request.query.max_pop}
         ORDER BY rank`;
