@@ -28,7 +28,7 @@ var y_axis = d3.axisLeft()
             .scale(y);
             
 var tooltip = d3.select("body").append("div").attr("class", "toolTip");
-tooltip.style("text-align", "left");
+tooltip.style("opacity","0");
 var animename = d3.select(".toolTip").append("p").attr("class","animename");
 var rankOfAnime = d3.select(".toolTip").append("p").attr("class","animeRank");
 var numberofViewsText = d3.select(".toolTip").append("p").attr("class","numberofViews");
@@ -36,7 +36,6 @@ var episodesNum = d3.select(".toolTip").append("p").attr("class","episodeNum");
 var airTime = d3.select(".toolTip").append("p").attr("class","airTime");
 var studio = d3.select(".toolTip").append("p").attr("class","studio");
 
-tooltip.style("transition" ,"all 2s");
 
 
           
@@ -102,10 +101,14 @@ function draw(data) {
       .attr("class", "bar")
       .merge(mysvg)
       .on("mousemove", function(d){
-            tooltip
+            
+              //.style("opacity","1");
+             tooltip
               .style("left", d3.event.pageX + "px")
-              .style("top", d3.event.pageY - 370 + "px")
-              .style("display", "inline-block")
+              .style("top", d3.event.pageY - 370 + "px");
+              
+              
+            
             animename.html("Title: " + d.title);
             rankOfAnime.html("Rank: " + d.rank);
             episodesNum.html("# Of Episodes: " + d.episodes);
@@ -114,9 +117,10 @@ function draw(data) {
             var airedObj = JSON.parse(airdVal);
             airTime.html("Release Date: " + airedObj.from);
             studio.html("Studio: " + d.studio);
+            tooltip.style("opacity","1");
             
         })
-       .on("mouseout", function(d){ tooltip.style("display", "none");})
+       .on("mouseout", function(d){ tooltip.style("opacity","0");})
        .transition()
       .duration(750)
       .attr("cx", function(d) { return x(d.rank); })
