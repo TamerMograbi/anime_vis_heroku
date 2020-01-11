@@ -290,10 +290,10 @@ html, body {
   pointer-events: none;
   height: auto;
   background: none repeat scroll 0 0 #ffffff;
-  border: 1px solid #6F257F;
   padding: 14px;
   transition: opacity 0.5s;
   border-radius:10%;
+  box-shadow: 5px 8px 5px rgba(0, 0, 0, 0.2),0px 5px 5px rgba(0, 0, 0, 0.1);
 }
 
 /*input{
