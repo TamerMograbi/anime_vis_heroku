@@ -294,7 +294,10 @@ html, body {
   transition: opacity 0.5s;
   border-radius:10%;
   box-shadow: 5px 8px 5px rgba(0, 0, 0, 0.2),0px 5px 5px rgba(0, 0, 0, 0.1);
+  /*nice background color #273E47 */
+  background: linear-gradient(0deg, #4E6168 80%, #273E47 20%);
 }
+
 
 /*input{
     display:flex;
@@ -457,6 +460,15 @@ h1 {
     line-height: 1.3;
     font-size: 2.25rem;
     font-family: "Buenos Aires",sans-serif;
+}
+
+.animename,.animeRank,.numberofViews,.episodeNum,.airTime,.studio{
+    color:#EBEDEE;
+}
+
+.animename{
+    text-align: center;
+    text-transform: uppercase;
 }
 
 

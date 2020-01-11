@@ -110,7 +110,7 @@ function draw(data) {
               
               
             
-            animename.html("Title: " + d.title);
+            animename.html(d.title);
             rankOfAnime.html("Rank: " + d.rank);
             episodesNum.html("# Of Episodes: " + d.episodes);
             numberofViewsText.html("Number Of Views: " + d.numberofviews);
