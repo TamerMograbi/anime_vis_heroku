@@ -185,7 +185,7 @@
     </p>
     <h1>About the Graph</h1>
     <p>
-    the visualization is about animes.
+    The visualization is about animes.
     one visualization that correlates between anime's rank (based on user score aggregate) on the x axis
     and the anime's number of views by all users 
     on the y axis. ( the number of views only includes people who set the anime as completed in their account)
@@ -196,7 +196,7 @@
     <p>
     1. rank slider:
         the range of the rank of the shown points gets filtered according to the range of the slider.
-        this slider can be dragged, expanded and shrunk. (the maximum allowed range of expansion is 750.
+        this slider can be <span style="font-weight:bold">dragged, expanded and shrunk</span>. (the maximum allowed range of expansion is 750.
         otherwise graph will be too cluttered if more is allowed)
     </p>
     <p>
@@ -205,9 +205,16 @@
     </p>
     
     <h1> Architecture</h>
-    <p>
-    talk about server and client side. (use bullet points)
-    </p>
+    <p style="font-weight:bold"> Server side</p>
+    <p> The server is built in Node.js using the express and pg packages. it listens for requests
+    on the /data path. the client sends the current TV/Movie and rank range filtering, the server
+    then creates an SQL query and sends it along to the postgres database and returns the resulting
+    to the client</p>
+    <p style="font-weight:bold"> Client side</p>
+    
+    <p>The graph is built using the d3 library. everytime the user changes either the rank or the TV/Movie
+    checkbox filtering, it issues a request to the server in order to get the new data that will
+    show up in the graph.</p>
 </div>
 
 
