@@ -298,6 +298,30 @@ html, body {
   background: linear-gradient(0deg, #4E6168 80%, #273E47 20%);
 }
 
+.mononokeTooltip {
+    position: absolute;
+    z-index: 1;
+    width: 0px;
+    height: 0px;
+    top:15%;
+    right:-70%;
+    background: black;
+    border-radius: 50%;
+    opacity: 0;
+    transition: width 1s, height 1s, border-radius 2s, opacity 5s;
+}
+
+.red-circle:hover .mononokeTooltip {
+    opacity: 1;
+    width: 200px;
+    height: 200px;
+    border-radius:10%;
+}
+.red-circle:hover .mononokeTooltipText{
+    opacity: 1;
+    visibility:visible;
+}
+
 
 /*input{
     display:flex;
