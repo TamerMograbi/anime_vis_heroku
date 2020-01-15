@@ -264,11 +264,6 @@ textarea {
   }
 }
 
-/*this disables horizontal scrolling */
-html, body {
-    max-width: 100%;
-    overflow-x: hidden;
-}
 
 .box{
   position: absolute;
@@ -343,6 +338,8 @@ label {
   position: relative;
   padding-left: 35px;
   margin-bottom: 12px;
+  width:100px;
+  height:30px;
   cursor: pointer;
   font-size: 22px;
   -webkit-user-select: none;
@@ -400,8 +397,6 @@ label {
   height: 10px;
   border: solid white;
   border-width: 0 3px 3px 0;
-  -webkit-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
   transform: rotate(45deg);
 }
 
