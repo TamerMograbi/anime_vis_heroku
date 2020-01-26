@@ -264,6 +264,13 @@ textarea {
   }
 }
 
+html {
+  height: 100%;
+}
+body {
+  min-height: 100%;
+}
+
 
 .box{
   position: absolute;
@@ -454,6 +461,20 @@ circle.bar:hover {
     font-size: 3.5em;
 }
 
+.aboutbar{
+    position:absolute;
+    width:100%;
+    height:100px;
+    top:2480px;
+    background:#171A21;
+}
+
+.githubIcon{
+    position:absolute;
+    top:-50px;
+    left:50%;
+}
+
 .explanation{
     position: absolute;
     top: 1050px;
@@ -469,6 +490,12 @@ p{
     font-weight:300;
     word-wrap: break-all;
     white-space:normal;
+}
+
+p.about{
+    color: #fff;
+    font-size:25px;
+    text-align: center;
 }
 
 h1 {
