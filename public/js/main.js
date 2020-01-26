@@ -106,7 +106,8 @@ function draw(data) {
              tooltip
               .style("left", d3.event.pageX + "px")
               .style("top", d3.event.pageY - 370 + "px")
-              .style("pointer-events", "auto");
+              .style("pointer-events", "auto")
+              .style("display", "block");
               
               
             
@@ -121,7 +122,7 @@ function draw(data) {
             tooltip.style("opacity","1");
             
         })
-       .on("mouseout", function(d){ tooltip.style("opacity","0").style("pointer-events", "none");})
+       .on("mouseout", function(d){ tooltip.style("opacity","0").style("pointer-events", "none").style("display", "none");;})
        .transition()
       .duration(750)
       .attr("cx", function(d) { return x(d.rank); })

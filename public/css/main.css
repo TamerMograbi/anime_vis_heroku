@@ -273,9 +273,9 @@ body {
 
 
 .box{
-  position: absolute;
+  position: relative;
   display: block;
-  top: 450px;
+  margin-top: 50px;
   left: 3%;
   left: 100px;
   width: 1200px;
@@ -294,6 +294,7 @@ body {
   background: none repeat scroll 0 0 #ffffff;
   padding: 14px;
   transition: opacity 0.5s;
+  display:none;
   border-radius:10%;
   box-shadow: 5px 8px 5px rgba(0, 0, 0, 0.2),0px 5px 5px rgba(0, 0, 0, 0.1);
   /*nice background color #273E47 */
@@ -411,9 +412,6 @@ label {
 	background: blue;
 }
 
-p{
-white-space: pre;
-}
 
 circle.bar:hover {
   stroke: green;
@@ -436,7 +434,7 @@ circle.bar:hover {
 
 
  .toolbar {
-	 position: absolute;
+	 position: relative;
 	 width: 100%;
 	 height: 400px;
      top:0%;
@@ -462,22 +460,20 @@ circle.bar:hover {
 }
 
 .aboutbar{
-    position:absolute;
+    position:relative;
     width:100%;
     height:100px;
-    top:2480px;
     background:#171A21;
+    text-align:center;
 }
 
 .githubIcon{
-    position:absolute;
-    top:-50px;
+    position:relative;
     left:50%;
 }
 
 .explanation{
-    position: absolute;
-    top: 1050px;
+    position: relative;
     left: 25%;
     width: 50%;
     
@@ -486,16 +482,17 @@ circle.bar:hover {
 p{
     color: #0c0c0c;
     font-family: "Buenos Aires",sans-serif;
-    font-size:20px;
-    font-weight:300;
+    font-size: 20px;
+    font-weight: 300;
     word-wrap: break-all;
-    white-space:normal;
+    white-space: normal;
 }
 
 p.about{
+    position:relative;
+    top:38%;
     color: #fff;
     font-size:25px;
-    text-align: center;
 }
 
 h1 {
