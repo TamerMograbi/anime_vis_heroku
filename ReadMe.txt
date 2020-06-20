@@ -2,7 +2,7 @@
 setup and run the server:
 
 
-[Project link](https://anime-visual.herokuapp.com/)
+Project link : https://anime-visual.herokuapp.com/
 
 run in terminal at assignemnt directory:
 psql -U a3user -d a3db -f addTables.sql
