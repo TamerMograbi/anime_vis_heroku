@@ -1,7 +1,8 @@
 # used packages: pg express nouislider (should be installed automatically on "yarn install"
 setup and run the server:
 
-https://anime-visual.herokuapp.com/
+
+[Project link](https://anime-visual.herokuapp.com/)
 
 run in terminal at assignemnt directory:
 psql -U a3user -d a3db -f addTables.sql
